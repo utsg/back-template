@@ -4,10 +4,10 @@ WORKDIR /home/app
 COPY src .
 COPY pom.xml .
 RUN ls -la
-RUN mvn -X clean package
+RUN mvn clean package
 
 # Package stage
 FROM openjdk:11-jre-slim
-COPY --from=build /home/app/target/*.jar /usr/local/lib/app.jar
+COPY --from=build /home/app/target/back-template-0.0.1-SNAPSHOT.jar /usr/local/lib/app.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/usr/local/lib/app.jar"]
