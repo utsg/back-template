@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<kotlin.version>1.4.21</kotlin.version>
+		<start-class>com.github.utsg.backtemplate.BackTemplateApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>

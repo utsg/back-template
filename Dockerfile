@@ -4,7 +4,7 @@ WORKDIR /home/app
 COPY src .
 COPY pom.xml .
 RUN ls -la
-RUN mvn -e clean package
+RUN mvn -X clean package
 
 # Package stage
 FROM openjdk:11-jre-slim
