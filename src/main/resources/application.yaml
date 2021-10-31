@@ -1,3 +1,6 @@
 ---
 back-template:
     podName: ${POD_NAME:test-pod}
+
+server:
+    port: ${SERVER_PORT:8080}

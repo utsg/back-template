@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class BackTemplateApplication
 
 fun main(args: Array<String>) {
-	runApplication<BackTemplateApplication>(*args)
+    runApplication<BackTemplateApplication>(*args)
 }

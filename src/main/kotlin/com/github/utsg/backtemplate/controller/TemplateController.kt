@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController
 class TemplateController(private val configuration: TemplateConfiguration) {
     @GetMapping("/")
     fun getHello() : String {
-        return "Hello!"  + configuration.podName
+        return "Hello ${configuration.podName}!"
     }
 }
