@@ -14,23 +14,30 @@ jobs:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
 
       - name: Check out repository code
-        uses: actions/checkout@v2      
+        uses: actions/checkout@v2
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-      
+
       - name: Docker build
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: false
-          tags: utsg/kotlin-back-template:latest
+          tags: utsg/back-template:latest
 
-      - run: docker save kotlin-back-template:latest | gzip > kotlin-back-template.tar.gz
-      
+      - name: Docker save artifact
+        run: docker save utsg/back-template:latest | gzip > back-template.tar.gz
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: back-template.tar.gz
+          path: back-template.tar.gz
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
