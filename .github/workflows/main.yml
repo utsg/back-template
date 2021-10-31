@@ -1,4 +1,5 @@
-name: GitHub Action CI
+
+name: build
 on: [push]
 jobs:
   Explore-GitHub-Actions:
